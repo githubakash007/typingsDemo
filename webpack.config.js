@@ -1,22 +1,25 @@
 path = require("path");
-webpack = require("webpack");
+//webpack = require("webpack");
 
 module.exports = {
 
-    entry:["./src/welcome.ts"],
+    entry:"./src/app.ts",
     output:{
-        path: "/",
+        path: path.resolve("dist"),
+        publicPath:"/asset/js",
         filename:"akash.js"
     },
+    watch:true,
 
     module:{
           loaders:[{
              test:/\.ts$/,
+             exclude:/node_modules/,
              loader:"ts-loader"
           }]
 
     },
     resolve:{
-        extensions:[".webpack.js",".ts",".js"]
+        extensions:[".js",".ts"]
     }
 }
